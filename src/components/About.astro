@@ -1,0 +1,74 @@
+---
+import { about } from "../data/site";
+---
+
+<div class="section pb-section reveal" id="about-me">
+	<div class="container">
+		<h2 class="quote">{about.quote}</h2>
+		<p class="thisme">{about.me}</p>
+		<div class="grid">
+			<div class="col-5">
+				<p class="hi">{about.hi}</p>
+			</div>
+			<div class="col-7">
+				<div class="bio">
+					{
+						about.intro.map((p) => (
+							<p>{p}</p>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.section {
+		position: relative;
+	}
+	.quote {
+		font-size: 2.5rem;
+		font-weight: 100;
+		line-height: 1.25;
+		margin: 0 0 5rem;
+		max-width: 20ch;
+	}
+	.thisme {
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid var(--text);
+		color: var(--muted);
+		margin: 0;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		margin-top: 2.25rem;
+	}
+	.hi {
+		font-size: 3rem;
+		margin: 0;
+		line-height: 1.1;
+	}
+	.bio {
+		max-width: 450px;
+		font-size: 1.125rem;
+		color: var(--muted);
+	}
+	.bio p {
+		margin: 0 0 1rem;
+		line-height: 1.6;
+	}
+	.bio p:last-child {
+		margin-bottom: 0;
+	}
+	@media (min-width: 768px) {
+		.quote {
+			font-size: 3.75rem;
+		}
+		.grid {
+			grid-template-columns: 5fr 7fr;
+		}
+	}
+</style>

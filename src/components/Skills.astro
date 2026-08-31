@@ -1,0 +1,109 @@
+---
+import { stacks } from "../data/site";
+---
+
+<div class="section reveal" id="my-stack">
+	<div class="container">
+		<div class="heading">
+			<svg class="spin" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+				<g fill="currentColor">
+					<path d="M14 0l1.5 5.5L21 0l-2.5 5.9L26 2l-4 5.6L28 8l-6 1 0 0 5 3-6 .5L22 16l-5-1.6L19 21l-5-2-0 0 0 0-5 2 2-6.6L6 16l3-6.5-6-.6 6-2L4 5.3 9 8l-4-3.4L9 8 12 2l-1 5.5L13 1z"/>
+					<path d="M14 10.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>
+				</g>
+			</svg>
+			<h2 class="title">My Stack</h2>
+		</div>
+
+		<div class="groups">
+			{
+				stacks.map((group) => (
+					<div class="row grid">
+						<div class="col-5">
+							<p class="cat font-anton">{group.category}</p>
+						</div>
+						<div class="col-7 items">
+							{
+								group.items.map((item) => (
+									<span class="item">
+										<span class="bullet" aria-hidden="true"></span>
+										{item}
+									</span>
+								))
+							}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>
+
+<style>
+	.section {
+		position: relative;
+		padding-bottom: 4rem;
+	}
+	.heading {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 2.5rem;
+		color: var(--text);
+	}
+	.spin {
+		animation: spin 7s linear infinite;
+	}
+	@keyframes spin {
+		to { transform: rotate(360deg); }
+	}
+	.title {
+		font-size: 1.25rem;
+		text-transform: uppercase;
+		margin: 0;
+		letter-spacing: 0.02em;
+	}
+	.groups {
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+	}
+	.row {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+	.grid {
+		display: grid;
+	}
+	.cat {
+		font-size: 2.5rem;
+		line-height: 1;
+		color: var(--muted);
+		text-transform: uppercase;
+		margin: 0;
+	}
+	.items {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 2.75rem;
+		align-items: center;
+	}
+	.item {
+		display: flex;
+		align-items: center;
+		gap: 0.875rem;
+		font-size: 1.5rem;
+		text-transform: capitalize;
+		line-height: 1;
+	}
+	.bullet {
+		width: 40px;
+		height: 40px;
+		background: var(--accent);
+		border-radius: 50%;
+	}
+	@media (min-width: 640px) {
+		.row {
+			grid-template-columns: 5fr 7fr;
+		}
+	}
+</style>
