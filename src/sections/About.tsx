@@ -3,6 +3,7 @@ import SectionHeading from "../components/SectionHeading";
 import Statue3D from "../components/Statue3D";
 import { about, site } from "../data/content";
 import { gsap, isTouch } from "../lib/animations";
+import { asset } from "../lib/assets";
 
 const SPEC = [
 	["designation", "Engineering Student"],
@@ -133,7 +134,7 @@ export default function About() {
 
 						<div className="relative aspect-[4/5] overflow-hidden border border-line">
 							<div className="absolute inset-0">
-								<Statue3D image="/img/sumeet.jpg" size={999} />
+								<Statue3D image={asset("/img/sumeet.jpg")} size={999} />
 							</div>
 							<div className="pointer-events-none absolute inset-0 bp-bg opacity-30 mix-blend-screen" />
 							<div className="scanline absolute inset-0" />

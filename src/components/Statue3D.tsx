@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { asset } from "../lib/assets";
 
 export default function Statue3D({
 	image,
@@ -55,7 +56,7 @@ export default function Statue3D({
 
 			const loader = new GLTFLoader();
 			loader.load(
-				"/models/statue.glb",
+				asset("/models/statue.glb"),
 				(gltf) => {
 					if (cancelled) return;
 					model = gltf.scene;

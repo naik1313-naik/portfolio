@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import SectionHeading from "../components/SectionHeading";
 import { projects } from "../data/content";
 import { gsap } from "../lib/animations";
+import { asset } from "../lib/assets";
 
 const TYPE_META: Record<string, { code: string; o: string; n: string }> = {
 	app: { code: "WEB", o: "APP", n: "web application" },
@@ -100,7 +101,7 @@ export default function Projects() {
 
 									<div className="relative aspect-[16/10] overflow-hidden">
 										<img
-											src={p.image ?? `/img/projects/${p.type}.png`}
+											src={asset(p.image ?? `/img/projects/${p.type}.png`)}
 											alt={p.title}
 											loading="lazy"
 											className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
